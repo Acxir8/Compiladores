@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="915.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fes.aragon.controlador.VistaBurbujaController">
+   <children>
+      <BarChart fx:id="area" layoutX="14.0" layoutY="75.0" prefHeight="300.0" prefWidth="890.0">
+        <xAxis>
+          <CategoryAxis side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis side="LEFT" />
+        </yAxis>
+      </BarChart>
+      <Label layoutX="305.0" layoutY="14.0" text="Metodo de Ordenamiento">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <HBox alignment="CENTER" layoutX="5.0" layoutY="50.0" prefHeight="25.0" prefWidth="890.0" spacing="50.0">
+         <children>
+            <Button fx:id="burbuja" mnemonicParsing="false" onAction="#burbuja" text="Burbuja" />
+            <Button fx:id="seleccion" mnemonicParsing="false" onAction="#seleccion" text="Seleccion" />
+            <Button fx:id="insercion" mnemonicParsing="false" onAction="#insercion" text="Insercion " />
+            <Button fx:id="mezcla" mnemonicParsing="false" onAction="#mezcla" text="Mezcla" />
+            <Button fx:id="quicksort" mnemonicParsing="false" onAction="#quicksort" text="QuickSort" />
+            <Button fx:id="sinOrdenar" mnemonicParsing="false" onAction="#aleatorios" text="Lista sin ordenar" />
+         </children>
+      </HBox>
+      <Button fx:id="btnSalir" layoutX="831.0" layoutY="14.0" mnemonicParsing="false" onAction="#eventoSalir" text="Salir" />
+   </children>
+</Pane>

@@ -1,0 +1,7 @@
+Automatas, clase del 08-02-2024
+
+
+2n = par
+2n+1 = impar
+
+Tarea: Pasar a codigo los dos automatas que creaste y cuando se encuentre un error, indicar la columna, si se mete un caracter no valido, ademas agregar al codigo visto en clase poder leer más de una palabra para tus pruebas ocupar un arraylist para ingresar más palabras

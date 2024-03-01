@@ -1,0 +1,9 @@
+JFlex Java - analizador lexico
+cup - los otros xd
+ 
+herramienta de terceros para nuestro compilador
+
+Tarea: 
+Crear un proyecto con JFlex para que pueda reconocer la notación cientifica
+
+El jueves traemos armados los equipos 1-4

@@ -1,0 +1,13 @@
+REalizar el acomodado de matrices con una clase matriz, o donde se guardará o almacenará la información donde los objetos serán las filas y los atributos de cada objeto serán las columnas
+
+
+realizar una comparación con la segunda linea del documento para ver si se usarán caracteres especiales y así mandar a llamar el constructor que tenga para inicializar ese atributo o no.
+
+(0, 1, 2, ... n, n+1 (Serían los especiales), n+2 (Sería fin de cadena)
+
+y de 0 a n sería la mierda que meta el usuario
+
+Lenguaje # $ @
+Y te cagas xd
+
+podemos agregar que dependiendo el carácter agregue una bandera, si es una letra, activamos bandera de letra, si es digito, la de digito, si es especial, la de especial y cuando llegue a ; es fin de cadena

@@ -1,0 +1,94 @@
+Compiladores 06/02/2024
+
+
+Compilador: lenguaje fuente a lenguaje destino
+
+Multiples etapas:
+Programa fuente, tokens, árbol sintáctico, código de tres direcciones
+
+
+Analizador lexico(1 mes) el escaneo:
+Automatas finatas deterministas, programarlos, leer archivos
+
+Primera etapa, efecta la lectura del lenguaje fuente, secuencia de caracteres, en componentes lexicos o tokens
+
+A través de los espacios, lo puede identificar como si fuera una palabra, para momentos reservados, 
+Analizador sintactico pide tokens y verifica si es correcta la sentencia, el analizador léxico se los da
+
+
+lexema: secuencoa de caracteres del codigo fuente, que se mapea con el patron de un token, es decir, se analiza el código fuente y se cuentra una cadena de caracteres que se mapea con un token, se dice que la cadena es un token
+
+
+tabla de tokens: Estructura de dato que se almacena todos los tokens del lenguaje.
+
+Tabla de símbolos, será necesario identificar los identificadores y valores numericos que empleara el prorama que queremos compilar.
+
+
+
+
+Fase del analizado lexico:
+
+por cada token que se produce, se tendra la siguiente salida:
+<nombre del token, valor-atributo>.
+
+Atributos del componente lexico:
+
+el modulo del analizador lexico debe mostrar información adicional sobre los tokens, por ejemplo tipo de token, línea y columna que se encontró el token, etc.
+
+Tratamiento de errores del analizador léxico:
+Símbolos no permitidos:
+Todo símbolo que no pertenezca al lenguaje que esstamos analizando.
+
+Identificador mal construido: 
+Son aquellas palabras permitidas en el lenguaje que se ocupa como identificadores, por ejemplo un identificador que empiece con una letra y no con un número, y que tenga un tamaño determinado.
+
+Valores númericos mal construidos:
+Por ejemplo 12,34 en lugar de 12.34
+
+
+Constantes literales erróneamente:
+Si se crea una cadena por ejemplo "México siem´pre fiel", esta mal construida porque falta el cierre de las dobles comillas.
+Podemos nosotros ignorar estos errores y trtaarlos de la siguiente manera:
+Se ignoran los caracteres no validos hasta completar el token.
+insertar caracteres necesarios para a completar el token.
+reemplazar el carácter incorrecto con el correcto para el token.
+Quitar caracteres inválidos.
+
+
+
+Partes a programar:
+
+Una de las partes importantes de un analizador lexico es poder reconcer entre una palabra reservada del lenguaje del identificador.
+
+Crear una tabla con todas las palabras reservadas y consultarla cuando se crea un lexema que coresponda a un identificador.
+
+Implementar cada palabra reservada en el DT, para poder destinguir entre los identificadores (Esto complicaría el proceso de creación del programa del analizador léxico).
+
+Depende de que tan grande sea el número de palabras reservadas se desean ocupar en el lenguaje.
+
+
+El primer paso a través para crear un analizador léxico, es tratar de representarlo en eun diagrama de estados (Maquina autonoma)
+
+Debemos tener cuidado con como termina una palabra en el lenguaje, ya sea con espacio o con salto de linea, cosas de escape.
+
+Cuidar en que fila y columna suceden los errores
+
+
+
+
+
+Cerradura positiva solo 1 puede estar, cerradura de clint puede o no estar barias veces
+
+
+expresión pare reconocer flotantes
+
+
+[0-9]*.[0-9]*
+
+
+
+
+
+
+
+
