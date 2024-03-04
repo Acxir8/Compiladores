@@ -37,11 +37,12 @@ public class Archivos {
 			while ((linea = lector.readLine()) != null) {
 				token = linea.split(" ");
 				if (!lenguajeRegistrado) { // Registra la segunda línea del documento en el array lenguaje
-					String[] lenguaje = new String[token.length];
+					String[] lenguaje = new String[token.length + 1];
 					for (i = 0; i < token.length; i++) {
 						lenguaje[i] = token[i];
-						lenguajeRegistrado = true;
 					}
+					lenguaje[i] = ";";
+					lenguajeRegistrado = true;
 					this.lenguaje = lenguaje;
 				} else {// Registra el resto de lineas del documento o estados en la matriz
 					for (i = 0; i < token.length; i++) {
@@ -80,7 +81,7 @@ public class Archivos {
 	}
 
 	public void analizarPalabras() {
-		String nombreArchivoM = System.getProperty("user.dir") + "\\src\\fes\\aragon\\recursos\\matriz";
+		String nombreArchivoM = System.getProperty("user.dir") + "\\src\\fes\\aragon\\recursos\\matrizVariables";
 		String nombreArchivo = System.getProperty("user.dir") + "\\src\\fes\\aragon\\recursos\\palabras";
 		leerMatriz(nombreArchivoM);
 		leerPalabras(nombreArchivo);
@@ -107,9 +108,9 @@ public class Archivos {
 		int entrada = -1;
 //      lectura
 		if (Herramienta.letra(c)) {
-			c = '0';
+			c = 'L';
 		} else if (Herramienta.numero(c)) {
-			c = '1';
+			c = 'D';
 		}
 
 		for (int i = 0; i < lenguaje.length - 1; i++) {

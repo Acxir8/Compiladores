@@ -1,0 +1,29 @@
+1-3 participantes 
+Equipo con Richie, Irene y Mike:
+No°: 9
+Nota: bajada de puntos
+1.- Si al entregar el zip y no tiene el número de equipo (No letras), se te resta un punto 
+2.- En la caratula o en la portada no están los integrantes de equipo y el número de equipo, otro punto menos.
+3.- Dentro de la carpeta comprimida debes de incluir la carpeta de tus proyectos y el archivo pdf (Esto varia de acuerdo a los programas que se piden).
+4.- Si mandan el archivo en extención docx, menos 1 punto.
+
+Crea una nueva carpeta, con SOLO el número de equipo, copie y peque los problemas, con el pdf, luego, lo zipeamos.
+
+Primer Parcial Entrega el 15 de marzo:
+Todos con archivos
+fuente.txt
+Programas (6):
+1.- Par de uno e Impar de ceros (Unirlos, que evalue si cumple uno u otro).
+2.- AFN a AFD (0|1)*110*. Documentar tu diagrama y proceso (Conversión de AFN a AFD. (Con IFs).
+3.- Ocupar el AFD con métodos.
+4.- Tabla de transición (para variables) el primero que hicimos (El analizador lexico version 3).
+5.- Notacion cientifica 
+6.- El lenguaje con el AFD grande
+7.- Archivos de configuracion
+
+
+Documeto:
+Objetivo general: Construcción de un analizador lexico 
+Introducción: Información de un analizador lexico y un compilador en general
+Problematica: EL problema y abajo una solución,imagenes, explicación, procedimeinto.
+Conclusiones: La forma en la que percibimos el proceso de evolución de un analizador lexico o de lo que estemos haciendo, haciendo una historia, documentando los procesos que estamos ocupando
