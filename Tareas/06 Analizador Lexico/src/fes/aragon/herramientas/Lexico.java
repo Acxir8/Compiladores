@@ -1,6 +1,8 @@
 package fes.aragon.herramientas;
 
 public class Lexico {
+	private String tokenActual = "";
+	
 	private int indice = 0;
 	// Variables del AFD
 	private int estado = 0;
@@ -8,6 +10,7 @@ public class Lexico {
 	private Character numero = 'D';
 	private Character letra = 'L';
 	private boolean espacio = false;
+	private boolean tokenEvaluado = false;
 
 	private String token = "";
 
@@ -16,9 +19,9 @@ public class Lexico {
 	}
 
 	private void reinicio() {
-		indice = 0;
 		estado = 0;
 		columna = 0;
+		tokenActual  = "";
 
 	}
 
@@ -38,15 +41,19 @@ public class Lexico {
 		return caracter;
 	}
 
-	public int inicio(int[][] matriz, Character[] lenguaje) throws Exception {
+	public void/*int*/ inicio(int[][] matriz, Character[] lenguaje) throws Exception {
 		char c = ' ';
 		reinicio();
+		indice = 0;
+		tokenActual = "";
 		do {
 			boolean caracterEncontrado = false;
 			boolean caracterUsuarioEncontrado = false;
 			espacio = false;
 			c = siguienteCaracter();
-			if(!espacio) {
+			if(!espacio && !Herramienta.finCadena(c)) {
+				tokenActual = tokenActual + c;
+				}
 				if (Herramienta.numero(c) || Herramienta.letra(c)) { //Anliza los caracteres que sean letras o digitos, para diferenciar entre los declarados por el usuario y los L y D
 					for (int j = 0; j < lenguaje.length; j++) {			
 						if (c == lenguaje[j]) { //Si son del Lenguaje del usuario, registra la columna donde lo encontro
@@ -75,7 +82,7 @@ public class Lexico {
 							}
 						}
 					}
-				} else if (!Herramienta.numero(c) && !Herramienta.letra(c) && !Herramienta.finCadena(c)) { //Si el caracter no entra en el grupo de digitos o letras, busca en el lenguaje del usuario
+				} else if (!Herramienta.numero(c) && !Herramienta.letra(c) && !Herramienta.finCadena(c) && !espacio) { //Si el caracter no entra en el grupo de digitos o letras, busca en el lenguaje del usuario
 					for (int j = 0; j < lenguaje.length; j++) {
 						if (c == lenguaje[j]) { // Lenguaje usuario
 							columna = j; // Si lo encuentra, registra en que columna no encontro
@@ -83,20 +90,51 @@ public class Lexico {
 							break;
 						}
 					}
-				} else if (Herramienta.finCadena(c)) {
-					columna = matriz[0].length - 1;	 //si encontro el fin de la cadena ' ', marca si el estado es final o no según nuestra matriz
-					caracterEncontrado = true;
+				} else if (Herramienta.finCadena(c) || espacio ) {
+					if(espacio) {
+								estado = matriz[estado][lenguaje.length-1];
+								columna = matriz[0].length - 1;
+								estado = matriz[estado][columna];
+								//return estado;
+								if (estado == 1) {
+									System.out.println(tokenActual + ": Cadena valida");
+									reinicio();
+									tokenEvaluado = true;
+								} else {
+									System.out.println(tokenActual + ": Cadena invalida");
+									reinicio();
+									tokenEvaluado = true;
+								}
+					}else {
+						columna = matriz[0].length - 1;	 //si encontro el fin de la cadena ' ', marca si el estado es final o no según nuestra matriz
+						estado = matriz[estado][columna];
+						if (estado == 1) {
+							System.out.println(tokenActual + ": Cadena valida");
+							reinicio();
+							tokenEvaluado = true;
+						} else {
+							System.out.println(tokenActual + ": Cadena invalida");
+							reinicio();
+							tokenEvaluado = true;
+						}
+						//caracterEncontrado = true;
+					}
 				}
 				if (caracterEncontrado) { //Si encontró un caracter, registra el estado(Posteriormente la fila en la mtriz) y la columna en la que fue encontrado 
 					estado = matriz[estado][columna];
-				} else {
+				}else if(tokenEvaluado) {
+					tokenEvaluado = false;
+				}else {
 					throw new Exception(token + ": Caracter invalido ---> " + c + " encontrado en la columna: " + (indice));
 				}
-			}
+//			}else {
+//				reinicio();
+//				System.out.println(tokenActual);
+//			}
 
 
-		} while (!Herramienta.finCadena(c) || espacio);
-		return estado;
+		} while (!Herramienta.finCadena(c));
+		//return estado;
 	}
 
 }
